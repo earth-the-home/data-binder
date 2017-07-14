@@ -1,0 +1,24 @@
+{
+  "name": "data-binder",
+  "version": "1.0.0",
+  "description": "to bind dynamic data to web content page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naveento/data-binder.git"
+  },
+  "keywords": [
+    "data-binder",
+    "data",
+    "bind"
+  ],
+  "author": "Naveen Kumar <naveenkumarec405@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/naveento/data-binder/issues"
+  },
+  "homepage": "https://github.com/naveento/data-binder#readme"
+}
