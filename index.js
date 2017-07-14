@@ -16,26 +16,26 @@ DataBindTransform.prototype._transform = function (chunk, env, cb) {
 	this.push(bindAll(chunk.toString(), this.dataArray));
 	cb();
 }
-exports.bindToDestinationfile = function bindToDestinationfile(filePath, dataArray, destFilePath, callback) {
+exports.bindToDestinationFile = function bindToDestinationFile(filePath, dataArray, destFilePath, callback) {
 	if (typeof destFilePath === 'string' && typeof filePath === 'string' && dataArray instanceof Array) {
 		var custTransform = new DataBindTransform(dataArray);
 		var dest = fs.createWriteStream(path.normalize(destFilePath));
 		var data = fs.createReadStream(path.normalize(filePath));
 		dest.on('error', err => {
-				logger.error('Method name : [bindToDestinationfile], Could not pipe data to detination file, please verify the detination file');
+				logger.error('Method name : [bindToDestinationFile], Could not pipe data to detination file, please verify the detination file');
 				return callback && callback(true);
 			});
 		data.on('error', err => {
-				logger.error('Method name : [bindToDestinationfile], Could not bind data to file path [' + filePath + '], please verify the source file');
+				logger.error('Method name : [bindToDestinationFile], Could not bind data to file path [' + filePath + '], please verify the source file');
 				return callback && callback(true);
 			});
 		data.on('open', dt => {
-				logger.info('Method name : [bindToDestinationfile], the data binding to file path [' + filePath + '] has been done successfully');
+				logger.info('Method name : [bindToDestinationFile], the data binding to file path [' + filePath + '] has been done successfully');
 				return data.pipe(custTransform).pipe(dest);
 			});
 
 	} else {
-		logger.error('Method name : [bindToDestinationfile], Could not bind data due to improper arguments [' + arguments + '], please refer documentation');
+		logger.error('Method name : [bindToDestinationFile], Could not bind data due to improper arguments [' + arguments + '], please refer documentation');
 		return callback && callback(true);
 	}
 
