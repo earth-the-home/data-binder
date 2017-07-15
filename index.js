@@ -65,7 +65,7 @@ exports.bindToWriteStream = function bindToWriteStream(filePath, dataArray, dest
 }
 
 exports.bindToResponse = function bindToResponse(filePath, dataArray, res, callback) {
-	if (res !== undefined && res.constructor.name === "Response" && typeof filePath === 'string' && dataArray instanceof Array) {
+	if (res !== undefined && res.constructor.name === "ServerResponse" && typeof filePath === 'string' && dataArray instanceof Array) {
 		var custTransform = new DataBindTransform(dataArray);
 		var data = fs.createReadStream(path.normalize(filePath));
 		data.on('error', err => {
